@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { getJoke } from '../../actions/jokes';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -14,7 +16,13 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ onClick }) => {
+const Button = () => {
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(getJoke());
+  };
+
   return <StyledButton onClick={onClick}>MORE!!!!!</StyledButton>;
 };
 

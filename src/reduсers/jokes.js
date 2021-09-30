@@ -7,34 +7,32 @@ const initialState = {
 };
 
 export const jokes = (state = initialState, action) => {
-
   const { type, payload } = action;
 
-  console.log(payload)
   switch (type) {
     case GET_JOKE:
       return {
         ...state,
-        jokes: [ payload, ...state.jokes],
+        jokes: [payload, ...state.jokes],
         loading: false,
       };
-      case GET_JOKES:
-        return {
-          ...state,
-          jokes: [ ...payload, ...state.jokes],
-          loading: false,
-        };
-      case SET_LOADING:
+    case GET_JOKES:
+      return {
+        ...state,
+        jokes: [...payload, ...state.jokes],
+        loading: false,
+      };
+    case SET_LOADING:
       return {
         ...state,
         loading: true,
       };
-      case JOKE_ERROR:
-        return {
-          ...state,
-          error: payload,
-          loading: true,
-        };
+    case JOKE_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: true,
+      };
 
     default:
       return state;

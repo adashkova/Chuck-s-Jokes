@@ -8,8 +8,8 @@ export const getJoke = () => async dispatch => {
     const res = await axios.get(`https://api.chucknorris.io/jokes/random`);
 
     let jokes = JSON.parse(localStorage.getItem('jokes'));
-    if(jokes === null) {
-      jokes = []
+    if (jokes === null) {
+      jokes = [];
     }
 
     jokes.unshift(res.data.value);
