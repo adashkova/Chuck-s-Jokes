@@ -21,8 +21,6 @@ export const getJoke = () => async dispatch => {
       payload: res.data.value,
     });
   } catch (error) {
-    console.log(error);
-
     dispatch({
       type: JOKE_ERROR,
       payload: 'Sorry, server do not response!',
