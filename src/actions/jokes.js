@@ -2,7 +2,7 @@ import { SET_LOADING, GET_JOKE, GET_JOKES, JOKE_ERROR } from './types';
 import axios from 'axios';
 
 export const getJoke = () => async dispatch => {
-  dispatch({ type: SET_LOADING });
+  dispatch({ type: SET_LOADING, payload: true });
 
   try {
     const res = await axios.get(`https://api.chucknorris.io/jokes/random`);
@@ -34,6 +34,7 @@ export const getJokes = () => dispatch => {
   });
 
   if (!JSON.parse(localStorage.getItem('jokes'))) {
+    dispatch({ type: SET_LOADING, payload: false });
     return [];
   }
 

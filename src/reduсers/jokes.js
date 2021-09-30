@@ -25,7 +25,7 @@ export const jokes = (state = initialState, action) => {
     case SET_LOADING:
       return {
         ...state,
-        loading: true,
+        loading: payload,
       };
     case JOKE_ERROR:
       return {

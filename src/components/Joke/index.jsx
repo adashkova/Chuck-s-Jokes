@@ -4,7 +4,8 @@ const StyledJoke = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  min-width: 300px;
+  max-width: 450px;
   height: 150px;
   margin: 16px;
   padding: 12px 16px;

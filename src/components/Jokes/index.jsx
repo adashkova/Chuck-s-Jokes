@@ -14,9 +14,11 @@ const Jokes = ({ getJokes, jokes }) => {
     return <h1>{jokes.error}</h1>;
   }
 
-  return jokes.loading ? (
-    <Spinner />
-  ) : (
+  if (jokes.loading) {
+    return <Spinner />;
+  }
+
+  return (
     <>
       {jokes.jokes.map(joke => {
         return <Joke key={joke} joke={joke} />;
